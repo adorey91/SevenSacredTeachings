@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/_Scenes/1. Instructions.unity
     guid: f5f20b423611e1b459ca87d49fffe869
   - enabled: 1
-    path: Assets/_Scenes/2. WIsdom.unity
+    path: Assets/_Scenes/2. Wisdom.unity
     guid: 824e2de4da6b3c0469dfd72972e9ad61
+  - enabled: 1
+    path: Assets/_Scenes/3. Love.unity
+    guid: 385f05ffe04ebbf4382f5eb82a92d1ae
   m_configObjects: {}
