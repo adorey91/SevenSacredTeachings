@@ -10,9 +10,6 @@ public class Collect : MonoBehaviour
     private int count = 0;
     public GameObject winText;
 
-    // debugging text
-    //public TextMeshProUGUI countText;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +20,8 @@ public class Collect : MonoBehaviour
 
     void SetCount()
     {
-        // count text used for debugging
-        // countText.text = count.ToString();
         if (count >= 6) // amount of pick ups in level one
         {
-            // Set the text value of your 'winText'
             winText.SetActive(true); // win text is active
         }
     }
