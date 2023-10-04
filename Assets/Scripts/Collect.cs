@@ -5,24 +5,26 @@ using UnityEngine;
 public class collect : MonoBehaviour
 {
     //collection declarations
-    public List<GameObject> letters;
-    private int currentActiveIndex = 0;
-    private int count = 0;
+    private int letterCount; // counts list objects
+    public List<GameObject> letters; // list that contains game objects
+    private int drumCount = 0;
     public GameObject winText;
     public AudioClip handDrum;
     private Rigidbody rb;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        letters[currentActiveIndex].SetActive(false);
-        winText.SetActive(false);
-        GetComponent<AudioSource>().playOnAwake = false;
+        letterCount = letters.Count; // counts the amount of gameobjects stored in the list "letters"
+        letters[drumCount].SetActive(false); 
+        winText.SetActive(false);  // turns off win text at the beginning
+        GetComponent<AudioSource>().playOnAwake = false; // makes sure handDrum isn't played at the beginning
     }
 
-    void winCount()
+    void winCount() // checks to see if player has won
     {
-        if (count >= 6) // amount of pick ups in level one
+        if (drumCount >= letterCount) // amount of pick ups in level one
         {
             winText.SetActive(true); // win text is active
             rb.isKinematic = true;  // stops the player when wintext is active
@@ -36,9 +38,9 @@ public class collect : MonoBehaviour
             GetComponent<AudioSource>().clip = handDrum;    //audiosource pop audio		
             GetComponent<AudioSource>().Play();		// popaudio will play
 
-            other.gameObject.SetActive(false);
-            letters[count].SetActive(true);
-            count++;
+            other.gameObject.SetActive(false); //makes collectable disappear
+            letters[drumCount].SetActive(true); // turns on a letter based on the count
+            drumCount++; // count increases
         }
         winCount();
     }

@@ -31,12 +31,7 @@ public class ThirdPersonController : MonoBehaviour
         move = playerActionsAsset.Player.Move;
         playerActionsAsset.Player.Enable();
     }
-
-    private void OnDisable()
-    {
-        playerActionsAsset.Player.Disable();
-    }
-
+        
     private void FixedUpdate()
     {
         forceDirection += move.ReadValue<Vector2>().x * GetCameraRight(playerCamera) * movementForce;
