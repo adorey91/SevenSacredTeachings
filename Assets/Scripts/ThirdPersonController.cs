@@ -15,7 +15,6 @@ public class ThirdPersonController : MonoBehaviour
     private Rigidbody rb;
     public float movementForce = 1f;
     public float maxSpeed = 5f;
-    public float jumpForce = 5f;
     private Vector3 forceDirection = Vector3.zero;
 
     // camera reference
@@ -29,17 +28,15 @@ public class ThirdPersonController : MonoBehaviour
 
     private void OnEnable()
     {
-        playerActionsAsset.Player.Jump.started += DoJump;
         move = playerActionsAsset.Player.Move;
         playerActionsAsset.Player.Enable();
     }
 
-
     private void OnDisable()
     {
-        playerActionsAsset.Player.Jump.started -= DoJump;
         playerActionsAsset.Player.Disable();
     }
+
     private void FixedUpdate()
     {
         forceDirection += move.ReadValue<Vector2>().x * GetCameraRight(playerCamera) * movementForce;
@@ -84,14 +81,6 @@ public class ThirdPersonController : MonoBehaviour
         return right.normalized;
     }
 
-    private void DoJump(InputAction.CallbackContext obj)
-    {
-        if (IsGrounded())
-        {
-            forceDirection += Vector3.up * jumpForce;
-        }
-    }
-
     private bool IsGrounded()
     {
         Ray ray = new Ray(this.transform.position + Vector3.up * 0.25f, Vector3.down);
@@ -100,5 +89,4 @@ public class ThirdPersonController : MonoBehaviour
         else
             return false;
     }
-
 }
