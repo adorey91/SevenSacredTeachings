@@ -2626,6 +2626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d90339853fb4f48956da6c6b2e5b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panel: {fileID: 1370906950}
   pauseMenuUI: {fileID: 1679888341}
 --- !u!114 &773190855
 MonoBehaviour:
@@ -6148,7 +6149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.14117648}
+  m_Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 0.16862746}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6699,7 +6700,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477532071}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0058734296, y: 0.6970552, z: 0.0057102805, w: 0.71697074}
+  m_LocalRotation: {x: -0.005873428, y: 0.6970552, z: 0.005710279, w: 0.71697074}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8232,10 +8233,10 @@ GameObject:
   - component: {fileID: 1682508399}
   - component: {fileID: 1682508397}
   - component: {fileID: 1682508396}
-  - component: {fileID: 1682508395}
   - component: {fileID: 1682508400}
-  - component: {fileID: 1682508401}
   - component: {fileID: 1682508402}
+  - component: {fileID: 1682508395}
+  - component: {fileID: 1682508401}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -8273,7 +8274,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementForce: 6
   maxSpeed: 8
-  jumpForce: 0
   playerCamera: {fileID: 1651614777}
 --- !u!54 &1682508396
 Rigidbody:
