@@ -11,7 +11,6 @@ public class collect : MonoBehaviour
     public GameObject winText;
     public AudioClip handDrum;
     private Rigidbody rb;
-    
 
     // Start is called before the first frame update
     void Start()

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PickUp
   - collect
+  - exit
+  - entry
   layers:
   - Default
   - TransparentFX
