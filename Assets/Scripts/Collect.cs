@@ -25,8 +25,9 @@ public class collect : MonoBehaviour
     {
         if (drumCount >= letterCount) // amount of pick ups in level one
         {
+            Cursor.visible = true;
             winText.SetActive(true); // win text is active
-            rb.isKinematic = true;  // stops the player when wintext is active
+           
         }
     }
 

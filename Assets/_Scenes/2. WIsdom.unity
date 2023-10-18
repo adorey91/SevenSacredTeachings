@@ -4942,7 +4942,7 @@ Transform:
   m_GameObject: {fileID: 1588248564}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.29446, y: 7.04, z: 2.2963777}
+  m_LocalPosition: {x: -19.29446, y: 7.0104218, z: 2.2963777}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5181,7 +5181,7 @@ Transform:
   m_GameObject: {fileID: 1651614775}
   serializedVersion: 2
   m_LocalRotation: {x: 0.05626392, y: 0.71219784, z: -0.05746131, w: 0.69735706}
-  m_LocalPosition: {x: -19.29446, y: 7.04, z: 2.2963777}
+  m_LocalPosition: {x: -19.29446, y: 7.0104218, z: 2.2963777}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5397,7 +5397,7 @@ Transform:
   m_GameObject: {fileID: 1682508393}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5.7, y: 2.04, z: 1.77}
+  m_LocalPosition: {x: 5.7, y: 2.0104215, z: 1.77}
   m_LocalScale: {x: 1.4943, y: 1.986405, z: 1.4374}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6276,6 +6276,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 773190858}
     m_Modifications:
+    - target: {fileID: 145804718026969323, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 515803924580995869, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -6361,12 +6365,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3913323841389997912, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3913323841389997912, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 773190859}
+    - target: {fileID: 3913323841389997912, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3913323841389997912, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769997459790932519, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5504093004979323424, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
       propertyPath: m_Name
       value: winPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5504093004979323424, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
