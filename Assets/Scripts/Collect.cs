@@ -12,6 +12,10 @@ public class collect : MonoBehaviour
     public AudioClip handDrum;
     private Rigidbody rb;
 
+    public MeshRenderer sides;
+    public MeshRenderer roof;
+    public MeshRenderer windows;
+
     // Start is called before the first frame update
     void Start()
     {
