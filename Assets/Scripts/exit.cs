@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class entry : MonoBehaviour
+public class exit : MonoBehaviour
 {
     public MeshRenderer sides;
     public MeshRenderer roof;
     public MeshRenderer windows;
-    public GameObject exitDoor;
     public GameObject entryDoor;
+    public GameObject exitDoor;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            sides.enabled = false;
-            roof.enabled = false;
-            windows.enabled = false;
-            exitDoor.SetActive(true);
-            entryDoor.SetActive(false);
+            sides.enabled = true;
+            roof.enabled = true;
+            windows.enabled = true;
+            exitDoor.SetActive(false);
+            entryDoor.SetActive(true);
         }
     }
 }
