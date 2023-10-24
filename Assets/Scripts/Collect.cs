@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class collect : MonoBehaviour
@@ -11,6 +12,11 @@ public class collect : MonoBehaviour
     public GameObject winText;
     public AudioClip collectAudio;
     private Rigidbody rb;
+
+    public GameObject hands;
+    bool canPickup;
+    GameObject ObjectIwant;
+    bool hasItem;
 
     // Start is called before the first frame update
     void Start()
@@ -43,5 +49,41 @@ public class collect : MonoBehaviour
             collectCount++; // count increases
         }
         winCount();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("item"))
+        {
+            canPickup = true;
+            ObjectIwant = collision.gameObject;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        canPickup = false;
+    }
+
+    private void Update()
+    {
+        if (canPickup == true)
+        {
+            if (Input.GetKeyDown("e"))
+            {
+                ObjectIwant.GetComponent<Rigidbody>().isKinematic = true;
+                ObjectIwant.transform.position = hands.transform.position;
+                ObjectIwant.transform.parent = hands.transform;
+                ObjectIwant.transform.GetComponent<Collider>().enabled = false;
+                hasItem = true;
+            }
+        }
+        if (Input.GetKeyDown("q") && hasItem == true)
+        {
+            ObjectIwant.GetComponent<Rigidbody>().isKinematic = false;
+            ObjectIwant.transform.parent = null;
+            ObjectIwant.transform.GetComponent<Collider>().enabled=true;
+            hasItem = false;
+        }
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - collect
   - entry
   - stairs
+  - item
   layers:
   - Default
   - TransparentFX
