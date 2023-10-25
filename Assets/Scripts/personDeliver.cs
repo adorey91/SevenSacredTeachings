@@ -10,12 +10,11 @@ public class personDeliver : MonoBehaviour
     GameObject ObjectIwant;
     bool hasItem;
 
-    public Material colour;
-    private Material person;
+    private Color angryColor = Color.red;
+    private Color happyColor = Color.blue;
 
     public int testCount;
     
-
     private void OnCollisionEnter(Collision collision)
     {
         if (hasItem == false)
@@ -24,7 +23,6 @@ public class personDeliver : MonoBehaviour
             {
                 canPickup = true;
                 ObjectIwant = collision.gameObject;
-
             }
             testCount++;
         }
@@ -49,8 +47,7 @@ public class personDeliver : MonoBehaviour
             ObjectIwant.transform.GetComponent<Collider>().enabled = false;
             hasItem = true;
             ObjectIwant.GetComponent<Rigidbody>().isKinematic = true;
-            this.GetComponent<Renderer>().material = person;
-            person = colour;
+            colourChanger.ChangeColourToBlue();
 
         }
         else

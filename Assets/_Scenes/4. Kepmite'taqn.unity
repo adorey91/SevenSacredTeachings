@@ -2184,7 +2184,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 137135c53a5a24d4fb487b1a21156c8a, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2246,7 +2246,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hands: {fileID: 1874084611}
-  colour: {fileID: 2100000, guid: 9bf7fb057c6e28b459ca55a59d64d48b, type: 2}
   testCount: 0
 --- !u!65 &1111228890
 BoxCollider:
@@ -2768,7 +2767,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hands: {fileID: 1452451910}
-  colour: {fileID: 2100000, guid: 9bf7fb057c6e28b459ca55a59d64d48b, type: 2}
   testCount: 0
 --- !u!23 &1735227635
 MeshRenderer:
@@ -2790,7 +2788,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 137135c53a5a24d4fb487b1a21156c8a, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
