@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class personDeliver : MonoBehaviour
@@ -10,9 +11,11 @@ public class personDeliver : MonoBehaviour
     bool hasItem;
 
     public Material colour;
-    public GameObject personObject;
     private Material person;
-   
+
+    public int testCount;
+    
+
     private void OnCollisionEnter(Collision collision)
     {
         if (hasItem == false)
@@ -21,10 +24,14 @@ public class personDeliver : MonoBehaviour
             {
                 canPickup = true;
                 ObjectIwant = collision.gameObject;
+
             }
+            testCount++;
         }
         else
+        {
             canPickup = false;
+        }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -36,13 +43,13 @@ public class personDeliver : MonoBehaviour
     {
         if (canPickup == true)
         {
+            
             ObjectIwant.transform.position = hands.transform.position;
             ObjectIwant.transform.parent = hands.transform;
             ObjectIwant.transform.GetComponent<Collider>().enabled = false;
             hasItem = true;
             ObjectIwant.GetComponent<Rigidbody>().isKinematic = true;
-
-            personObject.GetComponent<Renderer>().material = person;
+            this.GetComponent<Renderer>().material = person;
             person = colour;
 
         }

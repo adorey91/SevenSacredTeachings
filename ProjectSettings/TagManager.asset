@@ -9,6 +9,7 @@ TagManager:
   - entry
   - stairs
   - item
+  - goal
   layers:
   - Default
   - TransparentFX
