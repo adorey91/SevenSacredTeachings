@@ -10,14 +10,28 @@ public class letterCount : MonoBehaviour
     private int collectCount = 0;
     public GameObject winText;
 
-   
+    public static letterCount Instance;
+
+    private int redToBlueChangeCount = 0;
+
     private void Start()
     {
         letterAmount = letters.Count; // counts the amount of gameobjects stored in the list "letters"
         letters[collectCount].SetActive(false);
 
         winText.SetActive(false);  // turns off win text at the beginning
+    }
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     void winCount() // checks to see if player has won
     {
@@ -28,18 +42,10 @@ public class letterCount : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void IncrementCounter()
     {
-        
-        
-        //{
-        //    letters[collectCount].SetActive(true); // turns on a letter based on the count
-        //    collectCount++; // count increases
-
-        //}
-
-
-      
+        redToBlueChangeCount++;
+        letters[collectCount].SetActive(true); // turns on a letter based on the count
+        collectCount++; // count increases
     }
-
 }
