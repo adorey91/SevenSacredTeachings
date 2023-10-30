@@ -10,9 +10,6 @@ public class personDeliver : MonoBehaviour
     GameObject ObjectIwant;
     bool hasItem;
 
-    private Color angryColor = Color.red;
-    private Color happyColor = Color.blue;
-
     private Renderer rend;
     private Color targetColor;
     private bool isColorChanging = false;
@@ -54,7 +51,6 @@ public class personDeliver : MonoBehaviour
 
         if (canPickup == true)
         {
-            
             ObjectIwant.transform.position = itemHolder.transform.position;
             ObjectIwant.transform.parent = itemHolder.transform;
             ObjectIwant.transform.GetComponent<Collider>().enabled = false;

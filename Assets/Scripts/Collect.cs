@@ -33,7 +33,6 @@ public class collect : MonoBehaviour
         {
             Cursor.visible = true;
             winText.SetActive(true); // win text is active
-
         }
     }
 
@@ -53,7 +52,8 @@ public class collect : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("item"))
+        if (collision.gameObject.CompareTag("item"))  
+        
         {
             canPickup = true;
             ObjectIwant = collision.gameObject;

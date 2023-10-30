@@ -29,7 +29,7 @@ public class collectLevel3 : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("item"))
+        if (collision.gameObject.CompareTag("item") || collision.gameObject.CompareTag("trash"))
         {
             canPickup = true;
             ObjectIwant = collision.gameObject;

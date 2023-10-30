@@ -7,9 +7,10 @@ TagManager:
   - PickUp
   - collect
   - entry
-  - stairs
   - item
   - goal
+  - trash
+  - trashCan
   layers:
   - Default
   - TransparentFX
