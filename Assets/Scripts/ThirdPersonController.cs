@@ -17,6 +17,11 @@ public class ThirdPersonController : MonoBehaviour
     public float maxSpeed = 5f;
     private Vector3 forceDirection = Vector3.zero;
 
+    [SerializeField] GameObject stepLower;
+    [SerializeField] GameObject stepUpper;
+    [SerializeField] float stepHeight = 0.3f;
+    [SerializeField] float stepSmooth = 0.1f;
+
     // camera reference
     public Camera playerCamera;
 
@@ -25,6 +30,8 @@ public class ThirdPersonController : MonoBehaviour
         Cursor.visible = false;
         rb = this.GetComponent<Rigidbody>();
         playerActionsAsset = new ThirdPersonActionsAsset();
+
+        stepUpper.transform.position = new Vector3(stepUpper.transform.position.x, stepHeight, stepUpper.transform.position.z);
     }
 
     private void OnEnable()
@@ -48,6 +55,8 @@ public class ThirdPersonController : MonoBehaviour
         horizontalVelocity.y = 0;
         if (horizontalVelocity.sqrMagnitude > maxSpeed * maxSpeed)
             rb.velocity = horizontalVelocity.normalized * maxSpeed + Vector3.up * rb.velocity.y;
+
+        stepClimb();
 
         LookAt();
     }
@@ -84,5 +93,37 @@ public class ThirdPersonController : MonoBehaviour
             return true;
         else
             return false;
+    }
+    void stepClimb()
+    {
+        RaycastHit hitLower;
+        if (Physics.Raycast(stepLower.transform.position, transform.TransformDirection(Vector3.forward), out  hitLower, 0.1f))
+        {
+            RaycastHit hitUpper;
+            if (!Physics.Raycast(stepUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper, 0.2f))
+            {
+                rb.position -= new Vector3(0f, -stepSmooth, 0f);
+            }
+        }
+
+        RaycastHit hitLower45;
+        if (Physics.Raycast(stepLower.transform.position, transform.TransformDirection(Vector3.forward), out hitLower45, 0.1f))
+        {
+            RaycastHit hitUpper45;
+            if (!Physics.Raycast(stepUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper45, 0.2f))
+            {
+                rb.position -= new Vector3(0f, -stepSmooth, 0f);
+            }
+        }
+
+        RaycastHit hitLowerMinus45;
+        if (Physics.Raycast(stepLower.transform.position, transform.TransformDirection(Vector3.forward), out hitLowerMinus45, 0.1f))
+        {
+            RaycastHit hitUpperMinus45;
+            if (!Physics.Raycast(stepUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpperMinus45, 0.2f))
+            {
+                rb.position -= new Vector3(0f, -stepSmooth, 0f);
+            }
+        }
     }
 }
