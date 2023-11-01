@@ -15,8 +15,7 @@ public class trashOnly : MonoBehaviour
     private bool isColorChanging = false;
 
     public Transform trashHolder;
-    private int requiredChildren = 3;
-
+    
     void Start()
     {
         rend = GetComponent<Renderer>();
@@ -29,6 +28,10 @@ public class trashOnly : MonoBehaviour
         {
             canPickup = true;
             ObjectIwant = collision.gameObject;
+        }
+        else
+        {
+            canPickup = false;
         }
     }
 
@@ -50,14 +53,15 @@ public class trashOnly : MonoBehaviour
             ObjectIwant.transform.position = itemHolder.transform.position;
             ObjectIwant.transform.parent = itemHolder.transform;
             ObjectIwant.transform.GetComponent<Collider>().enabled = false;
+            hasItem = true;
             ObjectIwant.GetComponent<Rigidbody>().isKinematic = true;
+            ObjectIwant.GetComponent<Light>().enabled = false;
+            this.transform.GetComponent<Collider>().enabled = false;
+            ChangeToBlue();
         }
-        if (trashHolder != null)
+        else
         {
-            if (trashHolder.childCount == requiredChildren)
-            {
-                ChangeToBlue();
-            }
+            hasItem = false;
         }
     }
 
