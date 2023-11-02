@@ -5599,7 +5599,7 @@ MonoBehaviour:
   - {fileID: 2111584352}
   - {fileID: 1677642001}
   winText: {fileID: 1370906950}
-  collectAudio: {fileID: 0}
+  collectAudio: {fileID: 8300000, guid: b003a43655a0813469a567ab9d5b2a92, type: 3}
 --- !u!82 &1682508402
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5612,7 +5612,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b003a43655a0813469a567ab9d5b2a92, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6350,7 +6350,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 145804718026969323, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -90
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 515803924580995869, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

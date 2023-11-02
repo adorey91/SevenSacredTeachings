@@ -44,7 +44,6 @@ public class trashOnly : MonoBehaviour
     {
         if (isColorChanging)
         {
-            // Interpolate between the current color and the target color over time
             rend.material.color = Color.Lerp(rend.material.color, targetColor, Time.deltaTime);
         }
 
