@@ -6,26 +6,10 @@ using UnityEngine;
 public class collectLevel3 : MonoBehaviour
 {
     //collection declarations
-    private Rigidbody rb;
-
     public GameObject hands;
     bool canPickup;
     GameObject ObjectIwant;
     bool playerItem;
-
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("Player"))
-    //    {
-    //        GetComponent<AudioSource>().clip = collectAudio;    //audiosource pop audio		
-    //        GetComponent<AudioSource>().Play();     // popaudio will play
-    //        letters[collectCount].SetActive(true); // turns on a letter based on the count
-    //        collectCount++; // count increases
-
-    //    }
-    //    winCount();
-    //}
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -54,6 +38,7 @@ public class collectLevel3 : MonoBehaviour
                 playerItem = true;
             }
         }
+     
         if (Input.GetKeyDown("q") && playerItem == true)
         {
             ObjectIwant.GetComponent<Rigidbody>().isKinematic = false;
@@ -61,8 +46,5 @@ public class collectLevel3 : MonoBehaviour
             ObjectIwant.transform.GetComponent<Collider>().enabled = true;
             playerItem = false;
         }
-        
-            
-        
     }
 }

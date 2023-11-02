@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class ThirdPersonController : MonoBehaviour
@@ -24,6 +25,7 @@ public class ThirdPersonController : MonoBehaviour
 
     // camera reference
     public Camera playerCamera;
+    public static ThirdPersonController Camera;
 
     private void Awake()
     {
@@ -39,7 +41,7 @@ public class ThirdPersonController : MonoBehaviour
         move = playerActionsAsset.Player.Move;
         playerActionsAsset.Player.Enable();
     }
-        
+
     private void FixedUpdate()
     {
         forceDirection += move.ReadValue<Vector2>().x * GetCameraRight(playerCamera) * movementForce;
@@ -58,10 +60,13 @@ public class ThirdPersonController : MonoBehaviour
 
         stepClimb();
 
-        LookAt();
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            LookAt();
+        }
     }
 
-    private void LookAt()
+    public void LookAt()
     {
         Vector3 direction = rb.velocity;
         direction.y = 0f;
@@ -81,9 +86,11 @@ public class ThirdPersonController : MonoBehaviour
 
     private Vector3 GetCameraRight(Camera playerCamera)
     {
-        Vector3 right = playerCamera.transform.right;
-        right.y = 0;
-        return right.normalized;
+        
+            Vector3 right = playerCamera.transform.right;
+            right.y = 0;
+            return right.normalized;
+      
     }
 
     private bool IsGrounded()

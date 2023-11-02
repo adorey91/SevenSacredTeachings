@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class collect : MonoBehaviour
@@ -13,6 +14,7 @@ public class collect : MonoBehaviour
     public AudioClip collectAudio;
     private Rigidbody rb;
 
+    public GameObject freelookCamera;
   
     // Start is called before the first frame update
     void Start()
@@ -21,14 +23,18 @@ public class collect : MonoBehaviour
         letters[collectCount].SetActive(false);
         winText.SetActive(false);  // turns off win text at the beginning
         GetComponent<AudioSource>().playOnAwake = false; // makes sure handDrum isn't played at the beginning
+
+        rb = this.GetComponent<Rigidbody>();
     }
 
     void winCount() // checks to see if player has won
     {
-        if (collectCount >= letterCount) // amount of pick ups in level one
+        if (collectCount == letterCount) // amount of pick ups in level one
         {
             Cursor.visible = true;
             winText.SetActive(true); // win text is active
+            rb.isKinematic = true;
+            freelookCamera.SetActive(false);
         }
     }
 

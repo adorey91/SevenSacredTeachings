@@ -2753,7 +2753,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1029386445}
-  - component: {fileID: 1029386446}
   m_Layer: 0
   m_Name: Collect
   m_TagString: collect
@@ -2782,19 +2781,6 @@ Transform:
   - {fileID: 1290890629}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1029386446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1029386444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73e5227a55366424380db11831692588, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectionAmount: 6
 --- !u!1 &1036108969
 GameObject:
   m_ObjectHideFlags: 0
@@ -4662,7 +4648,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477532071}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.056263927, y: 0.71219784, z: -0.057461314, w: 0.697357}
+  m_LocalRotation: {x: 0.056263927, y: 0.71219784, z: -0.05746129, w: 0.6973571}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5321,7 +5307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 447, y: 0}
+  m_AnchoredPosition: {x: 450.3, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1677642003
@@ -5600,6 +5586,7 @@ MonoBehaviour:
   - {fileID: 1677642001}
   winText: {fileID: 1370906950}
   collectAudio: {fileID: 8300000, guid: b003a43655a0813469a567ab9d5b2a92, type: 3}
+  freelookCamera: {fileID: 1588248564}
 --- !u!82 &1682508402
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6135,7 +6122,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 406.9, y: 0}
+  m_AnchoredPosition: {x: 410.4, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2111584354
