@@ -25,6 +25,7 @@ public class ThirdPersonController : MonoBehaviour
 
     // camera reference
     public Camera playerCamera;
+
     public static ThirdPersonController Camera;
 
     private void Awake()
@@ -95,12 +96,13 @@ public class ThirdPersonController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        Ray ray = new Ray(this.transform.position + Vector3.up * 0.25f, Vector3.down);
-        if (Physics.Raycast(ray, out RaycastHit hit, 0.3f))
+        Ray ray = new Ray(this.transform.position + Vector3.up * 0.21f, Vector3.down);
+        if (Physics.Raycast(ray, out RaycastHit hit, 0.25f))
             return true;
         else
             return false;
     }
+
     void stepClimb()
     {
         RaycastHit hitLower;
