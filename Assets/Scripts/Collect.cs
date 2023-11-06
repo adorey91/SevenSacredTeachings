@@ -42,8 +42,8 @@ public class collect : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PickUp"))
         {
-            GetComponent<AudioSource>().clip = collectAudio;    //audiosource pop audio		
-            GetComponent<AudioSource>().Play();		// popaudio will play
+            GetComponent<AudioSource>().clip = collectAudio;    //audiosource plays		
+            GetComponent<AudioSource>().Play();		// audio will play
 
             other.gameObject.SetActive(false); //makes collectable disappear
             letters[collectCount].SetActive(true); // turns on a letter based on the count
