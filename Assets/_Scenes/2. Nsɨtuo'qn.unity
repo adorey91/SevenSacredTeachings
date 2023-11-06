@@ -6336,6 +6336,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 773190858}
     m_Modifications:
     - target: {fileID: 145804718026969323, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 145804718026969323, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -80
       objectReference: {fileID: 0}
@@ -6343,6 +6347,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 773190854}
+    - target: {fileID: 1759582044173078603, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083635925304165931, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
+      propertyPath: m_fontSize
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083635925304165931, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 3109323326605528583, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6454,6 +6470,14 @@ PrefabInstance:
     - target: {fileID: 5504093004979323424, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111681320213377936, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111681320213377936, guid: 40bccb99fb4720a408dfda5e4998eca5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6689,6 +6713,14 @@ PrefabInstance:
     - target: {fileID: 8733985228883920604, guid: bce91127174579b418543b5217b9ee9a, type: 3}
       propertyPath: m_Name
       value: pauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733985228883920604, guid: bce91127174579b418543b5217b9ee9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154127596810001230, guid: bce91127174579b418543b5217b9ee9a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 350
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
