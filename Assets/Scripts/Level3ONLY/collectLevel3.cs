@@ -29,7 +29,7 @@ public class collectLevel3 : MonoBehaviour
     {
         if (canPickup == true)
         {
-            if (Input.GetKeyDown("e"))
+            if ((Input.GetKeyDown("e"))||(Input.GetButtonDown("Pickup")))
             {
                 ObjectIwant.GetComponent<Rigidbody>().isKinematic = true;
                 ObjectIwant.transform.position = hands.transform.position;
@@ -39,7 +39,7 @@ public class collectLevel3 : MonoBehaviour
             }
         }
      
-        if (Input.GetKeyDown("q") && playerItem == true)
+        if ((Input.GetKeyDown("q") ||(Input.GetButtonDown("Drop")))&& playerItem == true)
         {
             ObjectIwant.GetComponent<Rigidbody>().isKinematic = false;
             ObjectIwant.transform.parent = null;
