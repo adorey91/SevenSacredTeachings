@@ -7,15 +7,16 @@ using UnityEngine;
 public class collect : MonoBehaviour
 {
     //collection declarations
-    private int letterCount; // counts list objects
     public List<GameObject> letters; // list that contains game objects
+    private int letterCount; // counts list objects
     private int collectCount = 0;
+    
     public GameObject winText;
-    public AudioClip collectAudio;
+    
     private Rigidbody rb;
 
     public GameObject freelookCamera;
-  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,14 +39,13 @@ public class collect : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.CompareTag("PickUp"))
+        if (collision.gameObject.CompareTag("collect"))
         {
-            GetComponent<AudioSource>().clip = collectAudio;    //audiosource plays		
-            GetComponent<AudioSource>().Play();		// audio will play
+            GetComponent<AudioSource>().Play();
 
-            other.gameObject.SetActive(false); //makes collectable disappear
+            collision.gameObject.SetActive(false);
             letters[collectCount].SetActive(true); // turns on a letter based on the count
             collectCount++; // count increases
         }

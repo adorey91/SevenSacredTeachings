@@ -576,7 +576,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 1. Instructions
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &957790832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,7 +625,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 909172b55ca4e2949ae17d8767b85412, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -752,7 +752,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad650d81a40d11428870423302f4568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mikmaq: {fileID: 8300000, guid: 909172b55ca4e2949ae17d8767b85412, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,6 +1127,7 @@ GameObject:
   - component: {fileID: 1764361259}
   - component: {fileID: 1764361261}
   - component: {fileID: 1764361260}
+  - component: {fileID: 1764361262}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1266,6 +1266,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764361254}
   m_CullTransparentMesh: 1
+--- !u!114 &1764361262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764361254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03aeb5ca930a8f243b0478e2d69ab95e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startButton: {fileID: 957790829}
 --- !u!1001 &6977820572821946991
 PrefabInstance:
   m_ObjectHideFlags: 0
