@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using TMPro;
 
 public class ThirdPersonController : MonoBehaviour
 {
@@ -17,7 +16,6 @@ public class ThirdPersonController : MonoBehaviour
     public float movementForce = 1f;
     public float maxSpeed = 5f;
     private Vector3 forceDirection = Vector3.zero;
-
 
     // camera reference
     [SerializeField]
@@ -53,9 +51,7 @@ public class ThirdPersonController : MonoBehaviour
             rb.velocity = horizontalVelocity.normalized * maxSpeed + Vector3.up * rb.velocity.y;
 
         if (!EventSystem.current.IsPointerOverGameObject())
-        {
             LookAt();
-        }
     }
 
     public void LookAt()
@@ -78,11 +74,9 @@ public class ThirdPersonController : MonoBehaviour
 
     private Vector3 GetCameraRight(Camera playerCamera)
     {
-        
             Vector3 right = playerCamera.transform.right;
             right.y = 0;
             return right.normalized;
-      
     }
 
     private bool IsGrounded()

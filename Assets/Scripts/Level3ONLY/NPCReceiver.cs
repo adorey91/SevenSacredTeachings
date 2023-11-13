@@ -8,7 +8,7 @@ public class NPCReceiver : MonoBehaviour
     public GameObject itemHolder;
     bool canPickup;
     GameObject ObjectIwant;
-    bool hasItem;
+    GameObject gift;
 
     private Renderer rend;
     private Color targetColor;
@@ -20,48 +20,35 @@ public class NPCReceiver : MonoBehaviour
         targetColor = Color.red; // The initial color
         rend.material.color = targetColor; // Set the initial color
     }
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (hasItem == false)
+        int child = itemHolder.transform.childCount;
+
+        if (other.gameObject.CompareTag("item") && child < 1)
         {
-            if (collision.gameObject.CompareTag("item"))
-            {
-                canPickup = true;
-                ObjectIwant = collision.gameObject;
-            }
+            canPickup = true;
+            ObjectIwant = other.gameObject;
+            gift = other.transform.GetChild(0).gameObject;
         }
         else
-        {
             canPickup = false;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        canPickup = false;
-    }
-
+    }        
     private void Update()
     {
         if (isColorChanging)
         {
-            // Interpolate between the current color and the target color over time
             rend.material.color = Color.Lerp(rend.material.color, targetColor, Time.deltaTime);
         }
 
         if (canPickup == true)
         {
+            ObjectIwant.transform.GetComponent<Collider>().enabled = false;
+            gift.transform.GetComponent<Collider>().enabled = false;
+            ObjectIwant.GetComponent<Rigidbody>().isKinematic = true;
             ObjectIwant.transform.position = itemHolder.transform.position;
             ObjectIwant.transform.parent = itemHolder.transform;
-            ObjectIwant.transform.GetComponent<Collider>().enabled = false;
-            hasItem = true;
-            ObjectIwant.GetComponent<Rigidbody>().isKinematic = true;
-            this.transform.GetComponent<Collider>().enabled = false;
             ChangeColorToBlue();
-        }
-        else
-        {
-            hasItem = false;
         }
     }
 

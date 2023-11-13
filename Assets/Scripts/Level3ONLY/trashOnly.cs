@@ -8,12 +8,12 @@ public class trashOnly : MonoBehaviour
     public GameObject itemHolder;
     bool canPickup;
     GameObject ObjectIwant;
-    bool hasItem;
+    GameObject bebsiCan;
 
     private Renderer rend;
     private Color targetColor;
     private bool isColorChanging = false;
-
+    
     public Transform trashHolder;
     
     void Start()
@@ -22,24 +22,20 @@ public class trashOnly : MonoBehaviour
         targetColor = Color.red; // The initial color
         rend.material.color = targetColor; // Set the initial color
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("trash"))
+        int child = itemHolder.transform.childCount;
+        
+        if (other.gameObject.CompareTag("trash")&& child < 1 )
         {
             canPickup = true;
-            ObjectIwant = collision.gameObject;
+            ObjectIwant = other.gameObject;
+            bebsiCan = other.transform.GetChild(0).gameObject;
         }
         else
-        {
             canPickup = false;
-        }
     }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        canPickup = false;
-    }
-
+    
     private void Update()
     {
         if (isColorChanging)
@@ -49,18 +45,13 @@ public class trashOnly : MonoBehaviour
 
         if (canPickup == true)
         {
+            ObjectIwant.transform.GetComponent<Collider>().enabled = false;
+            bebsiCan.transform.GetComponent <Collider>().enabled = false;
+            ObjectIwant.GetComponent<Rigidbody>().isKinematic = true;
             ObjectIwant.transform.position = itemHolder.transform.position;
             ObjectIwant.transform.parent = itemHolder.transform;
-            ObjectIwant.transform.GetComponent<Collider>().enabled = false;
-            hasItem = true;
-            ObjectIwant.GetComponent<Rigidbody>().isKinematic = true;
-            ObjectIwant.GetComponent<Light>().enabled = false;
-            this.transform.GetComponent<Collider>().enabled = false;
+            bebsiCan.GetComponent<Light>().enabled = false;
             ChangeToBlue();
-        }
-        else
-        {
-            hasItem = false;
         }
     }
 

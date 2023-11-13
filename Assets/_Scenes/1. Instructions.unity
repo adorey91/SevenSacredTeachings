@@ -419,8 +419,11 @@ MonoBehaviour:
     D / Right Arrow Key - Right
 
 
-    Camera
-    movement is controlled by the mouse.'
+    Escape
+    - Opens Pause menu
+
+
+    Camera movement is controlled by the mouse.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -10,13 +10,14 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject winPanel;
     public GameObject pauseMenuUI;
+    public GameObject CameraUI;
 
-    public GameObject resumeButton, mainMenuButton, quitButton;
-    
+    public GameObject resumeButton, quitButton, cameraButton, menuButton;
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Pause") )
+        if (Input.GetButtonDown("Pause"))
         {
             if (GameIsPaused)
             {
@@ -25,7 +26,7 @@ public class PauseMenu : MonoBehaviour
             else
             {
                 EventSystem.current.SetSelectedGameObject(null);
-                
+
                 if (!Input.GetKeyDown(KeyCode.Escape))
                 {
                     EventSystem.current.SetSelectedGameObject(resumeButton);
@@ -54,8 +55,6 @@ public class PauseMenu : MonoBehaviour
             pauseMenuUI.SetActive(true);
             Time.timeScale = 0f;
             GameIsPaused = true;
-
-           
         }
     }
 
@@ -66,7 +65,15 @@ public class PauseMenu : MonoBehaviour
     }
     public void QuitGame()
     {
-        Debug.Log("Quitting Game...");
         Application.Quit();
+    }
+
+    public void CameraOptions()
+    {
+        CameraUI.SetActive(true);
+        resumeButton.SetActive(false);
+        menuButton.SetActive(false);
+        cameraButton.SetActive(false);
+        quitButton.SetActive(false);
     }
 }
