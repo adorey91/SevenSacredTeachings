@@ -4,16 +4,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    private bool GameIsPaused = false;
     public GameObject winPanel;
     public GameObject pauseMenuUI;
     public GameObject CameraUI;
+    public GameObject mikmaqProgressText;
+    public TMP_Text LevelUI; // Text for PauseMenu UI that will take from outside the prefab
 
+    public TMP_Text LevelName;
     public GameObject resumeButton, quitButton, cameraButton, menuButton;
 
+
+    private void Start()
+    {
+        LevelUI.text = LevelName.text;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -26,7 +35,6 @@ public class PauseMenu : MonoBehaviour
             else
             {
                 EventSystem.current.SetSelectedGameObject(null);
-
                 if (!Input.GetKeyDown(KeyCode.Escape))
                 {
                     EventSystem.current.SetSelectedGameObject(resumeButton);
@@ -35,12 +43,14 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
+
     public void Resume()
     {
         Cursor.visible = false;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
         GameIsPaused = false;
+        mikmaqProgressText.SetActive(true);
     }
 
     void Pause()
@@ -55,6 +65,7 @@ public class PauseMenu : MonoBehaviour
             pauseMenuUI.SetActive(true);
             Time.timeScale = 0f;
             GameIsPaused = true;
+            mikmaqProgressText.SetActive(false);
         }
     }
 
@@ -63,6 +74,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("0. Title");
     }
+
     public void QuitGame()
     {
         Application.Quit();
