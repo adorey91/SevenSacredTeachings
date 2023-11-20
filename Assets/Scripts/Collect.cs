@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine.EventSystems;
 using UnityEngine;
+using TMPro;
 
 public class collect : MonoBehaviour
 {
@@ -10,9 +11,15 @@ public class collect : MonoBehaviour
     public List<GameObject> letters; // list that contains game objects
     private int letterCount; // counts list objects
     private int collectCount = 0;
-    
+
+    public GameObject collectionText; // turns off collection text
     public GameObject winText;
-    
+    public TMP_Text LevelUI; // Text for winMenu UI that will take from outside the prefab
+    public TMP_Text LevelName;
+
+    public TMP_Text levelEnglish;
+    public TMP_Text levelEnglishWin;
+
     private Rigidbody rb;
 
     public GameObject freelookCamera;
@@ -26,6 +33,8 @@ public class collect : MonoBehaviour
         GetComponent<AudioSource>().playOnAwake = false; // makes sure handDrum isn't played at the beginning
 
         rb = this.GetComponent<Rigidbody>();
+        LevelName = LevelUI;
+        levelEnglishWin = levelEnglish;
     }
 
     void winCount() // checks to see if player has won
@@ -36,6 +45,7 @@ public class collect : MonoBehaviour
             winText.SetActive(true); // win text is active
             rb.isKinematic = true;
             freelookCamera.SetActive(false);
+            collectionText.SetActive(false);
         }
     }
 

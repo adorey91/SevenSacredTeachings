@@ -21,6 +21,7 @@ public class cameraOptions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         cameraInvert.onValueChanged.AddListener(InvertXAxis);
         cameraSpeed.onValueChanged.AddListener(OnSpeedSliderChanged);
     }
