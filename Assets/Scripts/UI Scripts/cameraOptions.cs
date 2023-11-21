@@ -7,20 +7,20 @@ using UnityEditor.Rendering;
 
 public class cameraOptions : MonoBehaviour
 {
+    public GameObject cameraToggle;
+    [SerializeField] private Toggle cameraInvert;
     public Slider cameraSpeed;
-    public Toggle cameraInvert;
-
-    public GameObject objectToHighlight;
+    
     public GameObject pauseMenuUI;
     public GameObject CameraUI;
     public GameObject resumeButton, quitButton, cameraButton, menuButton;
 
-    [SerializeField]
-    CinemachineFreeLook freeLook;
+    [SerializeField] CinemachineFreeLook freeLook;
 
     // Start is called before the first frame update
     void Start()
     {
+        cameraInvert = cameraToggle.GetComponent<Toggle>();
 
         cameraInvert.onValueChanged.AddListener(InvertXAxis);
         cameraSpeed.onValueChanged.AddListener(OnSpeedSliderChanged);
@@ -31,7 +31,7 @@ public class cameraOptions : MonoBehaviour
         // Check if any gamepad/controller is connected
         if (Gamepad.current != null || Joystick.current != null)
         {
-            EventSystem.current.SetSelectedGameObject(objectToHighlight);
+            EventSystem.current.SetSelectedGameObject(cameraToggle);
         }
         if (Input.GetButtonDown("Pause")) 
         {

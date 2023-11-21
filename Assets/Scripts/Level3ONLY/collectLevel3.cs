@@ -9,6 +9,7 @@ public class collectLevel3 : MonoBehaviour
     bool canPickup;
     GameObject ObjectIwant;
     GameObject bebsiCan;
+
     [SerializeField]
     bool playerItem;
 

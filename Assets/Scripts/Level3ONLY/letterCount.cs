@@ -40,6 +40,7 @@ public class letterCount : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     void winCount() // checks to see if player has won
     {
         if (collectCount >= letterAmount) // amount of pick ups in level one

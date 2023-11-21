@@ -18,14 +18,16 @@ public class ThirdPersonController : MonoBehaviour
     private Vector3 forceDirection = Vector3.zero;
 
     // camera reference
-    [SerializeField]
-    private Camera playerCamera;
+    [SerializeField] private Camera playerCamera;
+
+    public itemCollection item;
 
     private void Awake()
     {
         Cursor.visible = false;
         rb = this.GetComponent<Rigidbody>();
         playerActionsAsset = new ThirdPersonActionsAsset();
+        
     }
 
     private void OnEnable()
@@ -86,5 +88,14 @@ public class ThirdPersonController : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("collect"))
+        {
+            other.gameObject.SetActive(false);
+            item.Collect();
+        }
     }
 }

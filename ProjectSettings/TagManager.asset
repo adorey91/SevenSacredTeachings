@@ -4,14 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PickUp
   - collect
   - entry
   - item
   - goal
   - trash
   - trashCan
-  - Ground
   layers:
   - Default
   - TransparentFX
