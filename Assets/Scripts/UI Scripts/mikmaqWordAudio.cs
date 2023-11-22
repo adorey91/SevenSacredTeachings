@@ -1,21 +1,28 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;// Required when using Event data.
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class mikmaqWordAudio : MonoBehaviour, IPointerEnterHandler
+public class mikmaqWordAudio : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private AudioSource audioSource;
-    // Start is called before the first frame update
+    public AudioSource word;
+    private GameObject hoverWord;
+
     void Start()
     {
-        GetComponent<AudioSource>().playOnAwake = false;
+        hoverWord = transform.GetChild(0).gameObject;   // hoverWord is the child of this gameObject
+        word.playOnAwake = false;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        GetComponent<AudioSource>().Play();
+        hoverWord.SetActive(false);
+        word.Play();
     }
 
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        hoverWord.SetActive(true);
+    }
 }

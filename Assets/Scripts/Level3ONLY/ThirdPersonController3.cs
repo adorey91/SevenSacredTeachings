@@ -13,8 +13,8 @@ public class ThirdPersonController3 : MonoBehaviour
 
     [Header("Movement Values")]
     private Rigidbody rb;
-    public float movementForce = 2f;
-    public float maxSpeed = 8f;
+    public float movementForce;
+    public float maxSpeed;
     private Vector3 forceDirection = Vector3.zero;
 
     [Header("Camera Reference")]
@@ -22,6 +22,8 @@ public class ThirdPersonController3 : MonoBehaviour
 
     private void Awake()
     {
+        maxSpeed = 8f;
+        movementForce = 2f;
         Cursor.visible = false;
         rb = this.GetComponent<Rigidbody>();
         playerActionsAsset = new ThirdPersonActionsAsset();

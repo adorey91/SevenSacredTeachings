@@ -2463,6 +2463,10 @@ PrefabInstance:
       propertyPath: freeLook
       value: 
       objectReference: {fileID: 516549234}
+    - target: {fileID: 7892481951038864831, guid: 9238c3938d840b14aaf758d3facd7c8c, type: 3}
+      propertyPath: word
+      value: 
+      objectReference: {fileID: 8300000, guid: eeb967f520714194680d4d8a3e83aeb4, type: 3}
     - target: {fileID: 9179599547351559937, guid: 9238c3938d840b14aaf758d3facd7c8c, type: 3}
       propertyPath: levelQuote
       value: 
