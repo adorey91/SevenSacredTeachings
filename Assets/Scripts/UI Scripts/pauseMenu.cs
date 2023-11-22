@@ -9,19 +9,19 @@ using TMPro;
 public class PauseMenu : MonoBehaviour
 {
     private bool GameIsPaused = false;
+    
     public GameObject winPanel;
     public GameObject pauseMenuUI;
     public GameObject CameraUI;
     public GameObject mikmaqProgressText;
-    public TMP_Text LevelUI; // Text for PauseMenu UI that will take from outside the prefab
-
-    public TMP_Text LevelName;
     public GameObject resumeButton, quitButton, cameraButton, menuButton;
 
+    public TMP_Text pauseLevelName;
+    public TMP_Text LevelName;
 
     private void Start()
     {
-        LevelUI.text = LevelName.text;
+        pauseLevelName.text = LevelName.text;
     }
     // Update is called once per frame
     void Update()

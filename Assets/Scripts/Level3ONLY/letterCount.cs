@@ -5,23 +5,22 @@ using UnityEngine;
 
 public class letterCount : MonoBehaviour
 {
+    public List<GameObject> letters; // list that contains game objects
+    
+    public GameObject winText;
+    public GameObject freelookCamera;
     public GameObject player;
+    public GameObject progressText;
+    
     private Rigidbody rb;
 
-    public GameObject freelookCamera;
-
-    private int letterAmount; // counts list objects
-    public List<GameObject> letters; // list that contains game objects
     private int collectCount = 0;
-    public GameObject winText;
+    private int redToBlueChangeCount = 0;
 
     public static letterCount Instance;
 
-    private int redToBlueChangeCount = 0;
-
     private void Start()
     {
-        letterAmount = letters.Count; // counts the amount of gameobjects stored in the list "letters"
         letters[collectCount].SetActive(false);
 
         winText.SetActive(false);  // turns off win text at the beginning
@@ -43,8 +42,9 @@ public class letterCount : MonoBehaviour
 
     void winCount() // checks to see if player has won
     {
-        if (collectCount >= letterAmount) // amount of pick ups in level one
+        if (collectCount >= letters.Count) // amount of pick ups in level one
         {
+            progressText.SetActive(false);
             Cursor.visible = true;
             winText.SetActive(true); // win text is active
             rb.isKinematic = true;

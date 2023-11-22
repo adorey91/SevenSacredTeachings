@@ -767,6 +767,7 @@ GameObject:
   - component: {fileID: 204652714203807679}
   - component: {fileID: 2496481527885550789}
   - component: {fileID: 4289816214622564311}
+  - component: {fileID: 9179599547351559937}
   m_Layer: 5
   m_Name: MenuScreens
   m_TagString: Untagged
@@ -812,12 +813,12 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 6926961632333378906}
   CameraUI: {fileID: 3872394839148554341}
   mikmaqProgressText: {fileID: 0}
-  LevelUI: {fileID: 9057806748627492554}
-  LevelName: {fileID: 0}
   resumeButton: {fileID: 6862148641118380940}
   quitButton: {fileID: 9168752177806075714}
   cameraButton: {fileID: 2624544338932018521}
   menuButton: {fileID: 6825227212155821729}
+  pauseLevelName: {fileID: 9057806748627492554}
+  LevelName: {fileID: 0}
 --- !u!114 &2496481527885550789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -852,6 +853,24 @@ MonoBehaviour:
   cameraButton: {fileID: 2624544338932018521}
   menuButton: {fileID: 6825227212155821729}
   freeLook: {fileID: 0}
+--- !u!114 &9179599547351559937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558207387478451073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507100524f4c0414a9119455eaa51b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mikmaqLevelName: {fileID: 0}
+  englishLevelName: {fileID: 0}
+  winPanelMikmaqLevelName: {fileID: 5336616376171685873}
+  winPanelEnglishLevelName: {fileID: 8053456630209155453}
+  winPanelQuote: {fileID: 2435736023373046099}
+  levelQuote: {fileID: 0}
 --- !u!1 &1582978164517767833
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +983,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 250, y: -700}
-  m_SizeDelta: {x: 580, y: 60}
+  m_SizeDelta: {x: 580, y: 80}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &3120525801425445734
 CanvasRenderer:
@@ -1280,7 +1299,7 @@ GameObject:
   - component: {fileID: 706815713665946527}
   - component: {fileID: 2435736023373046099}
   m_Layer: 5
-  m_Name: quoteText
+  m_Name: winQuoteText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1333,7 +1352,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: To know love is to know peace
+  m_text: QuoteText
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 10635b4c706d9d642af2811935bdb03a, type: 2}
@@ -1360,10 +1379,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65
+  m_fontSize: 72
   m_fontSizeBase: 65
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 33
@@ -2042,9 +2061,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: eeb967f520714194680d4d8a3e83aeb4, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2484,7 +2503,7 @@ GameObject:
   - component: {fileID: 472339853290202791}
   - component: {fileID: 9057806748627492554}
   m_Layer: 5
-  m_Name: LevelUI
+  m_Name: levelName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2506,7 +2525,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -250}
+  m_AnchoredPosition: {x: 250, y: -200}
   m_SizeDelta: {x: 1400, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &472339853290202791
@@ -3503,7 +3522,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 250, y: -800}
-  m_SizeDelta: {x: 580, y: 60}
+  m_SizeDelta: {x: 580, y: 80}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &8992109175387911864
 CanvasRenderer:
@@ -3636,7 +3655,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 250, y: -600}
-  m_SizeDelta: {x: 580, y: 60}
+  m_SizeDelta: {x: 580, y: 80}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2535338365589875693
 CanvasRenderer:
@@ -3841,7 +3860,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -150}
+  m_AnchoredPosition: {x: 250, y: -100}
   m_SizeDelta: {x: 1400, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &8910542758249231995
@@ -3958,7 +3977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4058637501125621697
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4005,7 +4024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.735849, g: 0.73237807, b: 0.73237807, a: 0.5019608}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.87058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

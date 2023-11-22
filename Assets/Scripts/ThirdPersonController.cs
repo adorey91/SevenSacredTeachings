@@ -13,8 +13,8 @@ public class ThirdPersonController : MonoBehaviour
 
     // movement fields
     private Rigidbody rb;
-    public float movementForce = 1f;
-    public float maxSpeed = 5f;
+    public float movementForce = 2f;
+    public float maxSpeed = 8f;
     private Vector3 forceDirection = Vector3.zero;
 
     // camera reference
