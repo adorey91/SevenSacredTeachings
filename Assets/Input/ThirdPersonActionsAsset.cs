@@ -71,6 +71,15 @@ public partial class @ThirdPersonActionsAsset: IInputActionCollection2, IDisposa
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Run"",
+                    ""type"": ""Button"",
+                    ""id"": ""843ec8e9-ed53-4ccb-b774-c269fd447343"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -293,6 +302,17 @@ public partial class @ThirdPersonActionsAsset: IInputActionCollection2, IDisposa
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dd1ebd11-86d3-4ec6-9a89-93d415ef9c00"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -322,6 +342,15 @@ public partial class @ThirdPersonActionsAsset: IInputActionCollection2, IDisposa
                     ""name"": ""Cancel"",
                     ""type"": ""Button"",
                     ""id"": ""ff37051a-b7c3-4e8c-ba46-e3646be8f449"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Zoom"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""506f84d9-6bdf-453f-9701-d87b64f22ac1"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -381,6 +410,17 @@ public partial class @ThirdPersonActionsAsset: IInputActionCollection2, IDisposa
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6934bde1-dbfb-497f-a69f-e3d4e03289c3"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -457,11 +497,13 @@ public partial class @ThirdPersonActionsAsset: IInputActionCollection2, IDisposa
         m_Player_Pickup = m_Player.FindAction("Pickup", throwIfNotFound: true);
         m_Player_Drop = m_Player.FindAction("Drop", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
         m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
         m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
+        m_UI_Zoom = m_UI.FindAction("Zoom", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -528,6 +570,7 @@ public partial class @ThirdPersonActionsAsset: IInputActionCollection2, IDisposa
     private readonly InputAction m_Player_Pickup;
     private readonly InputAction m_Player_Drop;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_Run;
     public struct PlayerActions
     {
         private @ThirdPersonActionsAsset m_Wrapper;
@@ -537,6 +580,7 @@ public partial class @ThirdPersonActionsAsset: IInputActionCollection2, IDisposa
         public InputAction @Pickup => m_Wrapper.m_Player_Pickup;
         public InputAction @Drop => m_Wrapper.m_Player_Drop;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -561,6 +605,9 @@ public partial class @ThirdPersonActionsAsset: IInputActionCollection2, IDisposa
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @Run.started += instance.OnRun;
+            @Run.performed += instance.OnRun;
+            @Run.canceled += instance.OnRun;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -580,6 +627,9 @@ public partial class @ThirdPersonActionsAsset: IInputActionCollection2, IDisposa
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @Run.started -= instance.OnRun;
+            @Run.performed -= instance.OnRun;
+            @Run.canceled -= instance.OnRun;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -604,6 +654,7 @@ public partial class @ThirdPersonActionsAsset: IInputActionCollection2, IDisposa
     private readonly InputAction m_UI_Pause;
     private readonly InputAction m_UI_Submit;
     private readonly InputAction m_UI_Cancel;
+    private readonly InputAction m_UI_Zoom;
     public struct UIActions
     {
         private @ThirdPersonActionsAsset m_Wrapper;
@@ -611,6 +662,7 @@ public partial class @ThirdPersonActionsAsset: IInputActionCollection2, IDisposa
         public InputAction @Pause => m_Wrapper.m_UI_Pause;
         public InputAction @Submit => m_Wrapper.m_UI_Submit;
         public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
+        public InputAction @Zoom => m_Wrapper.m_UI_Zoom;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -629,6 +681,9 @@ public partial class @ThirdPersonActionsAsset: IInputActionCollection2, IDisposa
             @Cancel.started += instance.OnCancel;
             @Cancel.performed += instance.OnCancel;
             @Cancel.canceled += instance.OnCancel;
+            @Zoom.started += instance.OnZoom;
+            @Zoom.performed += instance.OnZoom;
+            @Zoom.canceled += instance.OnZoom;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -642,6 +697,9 @@ public partial class @ThirdPersonActionsAsset: IInputActionCollection2, IDisposa
             @Cancel.started -= instance.OnCancel;
             @Cancel.performed -= instance.OnCancel;
             @Cancel.canceled -= instance.OnCancel;
+            @Zoom.started -= instance.OnZoom;
+            @Zoom.performed -= instance.OnZoom;
+            @Zoom.canceled -= instance.OnZoom;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -711,11 +769,13 @@ public partial class @ThirdPersonActionsAsset: IInputActionCollection2, IDisposa
         void OnPickup(InputAction.CallbackContext context);
         void OnDrop(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnRun(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
         void OnPause(InputAction.CallbackContext context);
         void OnSubmit(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
+        void OnZoom(InputAction.CallbackContext context);
     }
 }

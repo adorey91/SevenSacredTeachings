@@ -12,16 +12,16 @@ public class itemCollection : MonoBehaviour
     [Header("Object Declarations")]
     public GameObject collectionText;
     public GameObject winPanel;
-    public GameObject freelookCamera;
-    public GameObject player;
-    private Rigidbody rb;
+    //public GameObject freelookCamera;
+    //public GameObject player;
+    //private Rigidbody rb;
 
     void Start()
     {
         englishLetters[collectionCount].SetActive(false);
         GetComponent<AudioSource>().playOnAwake = false;
 
-        rb = player.GetComponent<Rigidbody>();
+        //rb = player.GetComponent<Rigidbody>();
     }
 
     public void Collect()
@@ -39,8 +39,8 @@ public class itemCollection : MonoBehaviour
         {
             Cursor.visible = true;
             winPanel.SetActive(true);
-            rb.isKinematic = true;
-            freelookCamera.SetActive(false);
+            //rb.isKinematic = true;
+            //freelookCamera.SetActive(false);
             collectionText.SetActive(false);
         }
     }
