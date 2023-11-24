@@ -11,13 +11,13 @@ public class itemCollection : MonoBehaviour
 
     [Header("Object Declarations")]
     public GameObject collectionText;
-    public GameObject winPanel;
     //public GameObject freelookCamera;
     //public GameObject player;
     //private Rigidbody rb;
-
+    [SerializeField] GameObject winPanel;
     void Start()
     {
+
         englishLetters[collectionCount].SetActive(false);
         GetComponent<AudioSource>().playOnAwake = false;
 
@@ -30,18 +30,33 @@ public class itemCollection : MonoBehaviour
         englishLetters[collectionCount].SetActive(true); // turns on english letters
         collectionCount++;  // increases collection count
 
-        winCount();
+        if (collectionCount == englishLetters.Count)
+        {
+            winCount();
+
+        }
     }
 
     void winCount()
     {
-        if (collectionCount == englishLetters.Count)
+        GameObject doNotDestroyObject = GameObject.Find("DoNotDestroy");
+        if (doNotDestroyObject != null)
         {
-            Cursor.visible = true;
-            winPanel.SetActive(true);
-            //rb.isKinematic = true;
-            //freelookCamera.SetActive(false);
-            collectionText.SetActive(false);
+            Transform menusTransform = doNotDestroyObject.transform.Find("Menus");
+            if (menusTransform != null)
+            {
+                Transform winPanelTransform = menusTransform.Find("winPanel");
+                if (winPanelTransform != null)
+                {
+                    GameObject winPanel = winPanelTransform.gameObject;
+                    if (winPanel != null && !winPanel.activeSelf)
+                    {
+                        Cursor.visible = true;
+                        winPanel.SetActive(true);
+                        collectionText.SetActive(false);
+                    }
+                }
+            }
         }
     }
 }

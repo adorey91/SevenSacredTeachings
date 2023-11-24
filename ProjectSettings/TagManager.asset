@@ -10,6 +10,9 @@ TagManager:
   - goal
   - trash
   - trashCan
+  - MikmaqLevel
+  - EnglishLevel
+  - LevelQuote
   layers:
   - Default
   - TransparentFX

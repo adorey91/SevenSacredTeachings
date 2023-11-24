@@ -13,10 +13,6 @@ public class WelcomeButton : MonoBehaviour
     public GameObject npcShirt;
     public Renderer npcRend;
 
-
-
-
-
     void Start()
     {
         targetColor = Color.red; // The initial color
@@ -30,9 +26,8 @@ public class WelcomeButton : MonoBehaviour
             // Interpolate between the current color and the target color over time
             npcRend.material.color = Color.Lerp(npcRend.material.color, targetColor, Time.deltaTime);
         }
-
-        
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
