@@ -29,13 +29,13 @@ public class titleScreen : MonoBehaviour
 
     public void Update()
     {
-        if (Gamepad.current != null)
-        {
-            if (!EventSystem.current.currentSelectedGameObject)
-            {
-                EventSystem.current.SetSelectedGameObject(startButton);
-            }
-        }
+        //if (Gamepad.current != null)
+        //{
+        //    if (!EventSystem.current.currentSelectedGameObject)
+        //    {
+        //        EventSystem.current.SetSelectedGameObject(startButton);
+        //    }
+        //}
 
         if (Input.GetButtonDown("Submit"))
         {

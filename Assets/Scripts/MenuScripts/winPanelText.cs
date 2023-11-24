@@ -10,6 +10,7 @@ public class winPanelText : MonoBehaviour
     public GameObject winPanel;
     public GameObject continueButton;
 
+
     [Header("Panel Text")]
     public TMP_Text winPanelMikmaqLevelName;
     public TMP_Text winPanelEnglishLevelName;

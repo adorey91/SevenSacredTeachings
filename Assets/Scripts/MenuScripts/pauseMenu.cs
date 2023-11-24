@@ -25,6 +25,7 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
         SetText();
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
     // Update is called once per frame
     void Update()
@@ -47,10 +48,19 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SetText();
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     void SetText()
     {
         GameObject textObject = GameObject.FindGameObjectWithTag("MikmaqLevel");
-
         if (textObject != null)
         {
             TMP_Text word = textObject.GetComponent<TMP_Text>();
@@ -59,14 +69,6 @@ public class PauseMenu : MonoBehaviour
             {
                 pauseLevelName.text = word.text;
             }
-            else
-            {
-                Debug.LogError("TMP_Text component not found on the GameObject with tag: " + "MikmaqLevel");
-            }
-        }
-        else
-        {
-            Debug.LogError("GameObject with tag not found: " + "MikmaqLevel");
         }
     }
      

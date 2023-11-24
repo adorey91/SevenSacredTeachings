@@ -15,6 +15,8 @@ public class itemCollection : MonoBehaviour
     //public GameObject player;
     //private Rigidbody rb;
     [SerializeField] GameObject winPanel;
+
+
     void Start()
     {
 
@@ -51,9 +53,11 @@ public class itemCollection : MonoBehaviour
                     GameObject winPanel = winPanelTransform.gameObject;
                     if (winPanel != null && !winPanel.activeSelf)
                     {
+
                         Cursor.visible = true;
                         winPanel.SetActive(true);
                         collectionText.SetActive(false);
+
                     }
                 }
             }
