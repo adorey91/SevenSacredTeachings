@@ -97,6 +97,7 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         pauseMenu.SetActive(false);
+        winPanel.SetActive(false);
         Time.timeScale = 1f;
         SceneManager.LoadScene("0. Title");
     }
