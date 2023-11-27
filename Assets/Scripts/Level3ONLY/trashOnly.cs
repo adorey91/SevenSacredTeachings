@@ -45,8 +45,10 @@ public class trashOnly : MonoBehaviour
 
         if (canPickup == true)
         {
-            ObjectIwant.transform.GetComponent<Collider>().enabled = false;
-            bebsiCan.transform.GetComponent <Collider>().enabled = false;
+            Destroy(ObjectIwant.transform.GetComponent<Collider>());
+            Destroy(bebsiCan.transform.GetComponent<Collider>());
+            //ObjectIwant.transform.GetComponent<Collider>().enabled = false;
+            //bebsiCan.transform.GetComponent <Collider>().enabled = false;
             ObjectIwant.GetComponent<Rigidbody>().isKinematic = true;
             ObjectIwant.transform.position = itemHolder.transform.position;
             ObjectIwant.transform.parent = itemHolder.transform;

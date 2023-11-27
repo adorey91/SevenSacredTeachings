@@ -18654,8 +18654,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 8, y: 8, z: 8}
-  m_Center: {x: 0, y: 3, z: 0}
+  m_Size: {x: 8, y: 9, z: 8}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &773095625
 GameObject:
   m_ObjectHideFlags: 0
@@ -18736,8 +18736,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 8, y: 8, z: 8}
-  m_Center: {x: 0, y: 3, z: 0}
+  m_Size: {x: 8, y: 9, z: 8}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &773163553
 GameObject:
   m_ObjectHideFlags: 0
@@ -34473,8 +34473,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 8, y: 8, z: 8}
-  m_Center: {x: 0, y: 3, z: 0}
+  m_Size: {x: 8, y: 9, z: 8}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!54 &992728072
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -34582,8 +34582,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5132201, y: 0.20000002, z: 1.5793208}
-  m_Center: {x: 0.05660999, y: 2.4149015e-16, z: 0.03966034}
+  m_Size: {x: 0.5132201, y: 0.26, z: 2}
+  m_Center: {x: 0.05660999, y: 2.4149015e-16, z: -0.24}
 --- !u!1 &1022621360
 GameObject:
   m_ObjectHideFlags: 0
@@ -36165,8 +36165,8 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 1
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 3, y: 0.12, z: 2.24}
@@ -48682,8 +48682,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5132201, y: 0.20000002, z: 1.5793208}
-  m_Center: {x: 0.05660999, y: 2.4149015e-16, z: 0.03966034}
+  m_Size: {x: 0.5132201, y: 0.26, z: 2}
+  m_Center: {x: 0.05660999, y: 2.4149015e-16, z: -0.24}
 --- !u!1001 &1635010004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54139,8 +54139,8 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 1
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 3, y: 0.12, z: 2.24}
@@ -55134,11 +55134,11 @@ GameObject:
   - component: {fileID: 1912398894}
   - component: {fileID: 1912398893}
   - component: {fileID: 1912398892}
+  - component: {fileID: 1912398887}
   - component: {fileID: 1912398896}
   - component: {fileID: 1912398891}
   - component: {fileID: 1912398889}
   - component: {fileID: 1912398888}
-  - component: {fileID: 1912398887}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -55159,6 +55159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hands: {fileID: 1495793061}
+  canPickup: 0
   playerItem: 0
 --- !u!82 &1912398888
 AudioSource:

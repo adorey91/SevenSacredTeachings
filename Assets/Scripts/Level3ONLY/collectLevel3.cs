@@ -6,7 +6,7 @@ using UnityEngine;
 public class collectLevel3 : MonoBehaviour
 {
     public GameObject hands;
-    bool canPickup;
+    [SerializeField]bool canPickup;
     GameObject ObjectIwant;
     GameObject bebsiCan;
 
@@ -15,7 +15,7 @@ public class collectLevel3 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (playerItem == false)
+        if (playerItem == false && hands.transform.childCount == 0)
         {
             if (other.gameObject.CompareTag("item") || other.gameObject.CompareTag("trash"))
             {
@@ -25,29 +25,42 @@ public class collectLevel3 : MonoBehaviour
             }
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        canPickup = false;
+    }
+
 
     private void Update()
     {
         if (canPickup == true)
         {
-            if ((Input.GetKeyDown("e"))||(Input.GetButtonDown("Pickup")))
+            if ((Input.GetKeyDown("e")) || (Input.GetButtonDown("Pickup")))
             {
                 ObjectIwant.GetComponent<Rigidbody>().isKinematic = true;
                 ObjectIwant.transform.position = hands.transform.position;
                 ObjectIwant.transform.parent = hands.transform;
                 ObjectIwant.transform.GetComponent<Collider>().enabled = false;
                 bebsiCan.transform.GetComponent <Collider>().enabled = false;
-                playerItem = true;
+                
+                if (hands.transform.childCount > 0)
+                {
+                    playerItem = true;
+                }
             }
         }
      
-        if ((Input.GetKeyDown("q") ||(Input.GetButtonDown("Drop")))&& playerItem == true)
+        if ((Input.GetKeyDown("q") || (Input.GetButtonDown("Drop")))&& playerItem == true)
         {
             ObjectIwant.GetComponent<Rigidbody>().isKinematic = false;
             ObjectIwant.transform.parent = null;
             ObjectIwant.transform.GetComponent<Collider>().enabled = true;
             bebsiCan.transform.GetComponent<Collider>().enabled = true;
-            playerItem = false;
+            
+            if (hands.transform.childCount == 0)
+            {
+                playerItem = false;
+            }
         }
     }
 }

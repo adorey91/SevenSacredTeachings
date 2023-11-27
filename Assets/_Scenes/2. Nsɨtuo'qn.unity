@@ -564,8 +564,7 @@ MonoBehaviour:
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
     Value: 0
-    m_SpeedMode: 0
-    m_MaxSpeed: 300
+    m_SpeedMode: 1
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
@@ -10159,6 +10158,9 @@ MonoBehaviour:
   m_MaxValue: 300
   m_WholeNumbers: 1
   m_Value: 300
+  m_MaxValue: 0.5
+  m_WholeNumbers: 0
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -11767,7 +11769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementForce: 2
-  maxSpeed: 8
+  maxSpeed: 10
   playerCamera: {fileID: 1477908753}
   item: {fileID: 1029386448}
 --- !u!1001 &1771808761
