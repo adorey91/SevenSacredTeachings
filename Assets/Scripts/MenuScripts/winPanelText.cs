@@ -9,6 +9,7 @@ public class winPanelText : MonoBehaviour
 {
     public GameObject winPanel;
     public GameObject continueButton;
+    public GameObject endGame;
 
 
     [Header("Panel Text")]
@@ -33,6 +34,7 @@ public class winPanelText : MonoBehaviour
         if (scene.name == "4. Kepmite'taqn")
         {
             continueButton.SetActive(false);
+            endGame.SetActive(true);
         }
     }
 
