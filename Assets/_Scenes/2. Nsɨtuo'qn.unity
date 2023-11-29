@@ -5292,7 +5292,7 @@ PrefabInstance:
     - target: {fileID: 7071182760956848314, guid: 5d413960a6e3cee46bff34370dc2cb5b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c493e475a56d38d4e819777da97f794f, type: 2}
+      objectReference: {fileID: 2100000, guid: 0838f52317cc38e4e955d4f8e6dc150d, type: 2}
     - target: {fileID: 7202271454713460447, guid: 5d413960a6e3cee46bff34370dc2cb5b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -6562,7 +6562,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 1.028
       inSlope: 0
       outSlope: 0
       tangentMode: 0

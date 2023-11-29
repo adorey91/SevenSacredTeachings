@@ -21,7 +21,6 @@ public class cameraOptions : MonoBehaviour
 
     private CinemachineFreeLook freelookCamera;
 
-
     public void Awake()
     {
         freelookCamera = DontDestroy.Instance.FreeLookCamera;

@@ -32,7 +32,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Pause") && cameraPanel.activeSelf == false)
+        if (Input.GetButtonDown("Pause") && cameraPanel.activeSelf == false && winPanel.activeSelf == false)
         {
             if (gameIsPaused)
                 resumeGame();
@@ -76,17 +76,12 @@ public class PauseMenu : MonoBehaviour
 
     public void pauseGame()
     {
-        if (winPanel.activeSelf == true)
-            return;
-        else
-        {
-            pausePanel.SetActive(true);
-            freelookCamera.SetActive(false);
-            rb.isKinematic = true;
-            Cursor.visible = true;
-            gameIsPaused = true;
-            Time.timeScale = 0f;
-        }
+        pausePanel.SetActive(true);
+        freelookCamera.SetActive(false);
+        rb.isKinematic = true;
+        Cursor.visible = true;
+        gameIsPaused = true;
+        Time.timeScale = 0f;
     }
 
     public void loadMenu()
