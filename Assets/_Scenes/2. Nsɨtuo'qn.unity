@@ -1813,9 +1813,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1319246821}
+      - m_Target: {fileID: 1319246827}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: CameraOptions
+        m_MethodName: cameraOptions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3926,7 +3926,7 @@ GameObject:
   - component: {fileID: 727541799}
   - component: {fileID: 727541798}
   m_Layer: 5
-  m_Name: pauseButton
+  m_Name: backButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3996,7 +3996,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1319246822}
+      - m_Target: {fileID: 1319246828}
         m_TargetAssemblyTypeName: cameraOptions, Assembly-CSharp
         m_MethodName: backButton
         m_Mode: 1
@@ -4668,10 +4668,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -6057,9 +6057,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1319246821}
+      - m_Target: {fileID: 1319246827}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: Resume
+        m_MethodName: resumeGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6488,7 +6488,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b003a43655a0813469a567ab9d5b2a92, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6593,6 +6593,8 @@ MonoBehaviour:
   - {fileID: 1677642001}
   collectionCount: 0
   collectionText: {fileID: 443176811}
+  player: {fileID: 1682508393}
+  freelookCamera: {fileID: 0}
   winPanel: {fileID: 0}
 --- !u!1 &1036108969
 GameObject:
@@ -6887,9 +6889,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1319246821}
+      - m_Target: {fileID: 1319246827}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: quitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8281,9 +8283,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1319246821}
+      - m_Target: {fileID: 1319246827}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: quitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9145,9 +9147,9 @@ GameObject:
   - component: {fileID: 1319246826}
   - component: {fileID: 1319246825}
   - component: {fileID: 1319246824}
-  - component: {fileID: 1319246821}
+  - component: {fileID: 1319246827}
   - component: {fileID: 1319246823}
-  - component: {fileID: 1319246822}
+  - component: {fileID: 1319246828}
   m_Layer: 5
   m_Name: Menus
   m_TagString: Untagged
@@ -9177,40 +9179,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1319246821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319246819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9d90339853fb4f48956da6c6b2e5b96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  winPanel: {fileID: 242943565}
-  pauseMenu: {fileID: 1627686018}
-  cameraPanel: {fileID: 39706388}
-  pauseLevelName: {fileID: 1218628084}
-  resumeButton: {fileID: 1470564065}
---- !u!114 &1319246822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319246819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c4cc95ecd7f6514b8041be8553b07e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraInvert: {fileID: 1992699513}
-  cameraSpeed: {fileID: 1402824256}
-  pauseMenuUI: {fileID: 1627686018}
-  CameraUI: {fileID: 39706388}
-  resumeButton: {fileID: 1470564065}
 --- !u!114 &1319246823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9292,6 +9260,41 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1319246827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319246819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d90339853fb4f48956da6c6b2e5b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameIsPaused: 0
+  winPanel: {fileID: 242943565}
+  cameraPanel: {fileID: 39706388}
+  pausePanel: {fileID: 1627686018}
+  freelookCamera: {fileID: 96682430}
+  pauseLevelName: {fileID: 1218628084}
+--- !u!114 &1319246828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319246819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4cc95ecd7f6514b8041be8553b07e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraInvert: {fileID: 1992699513}
+  cameraSpeed: {fileID: 1402824256}
+  cameraPanel: {fileID: 39706388}
+  pausePanel: {fileID: 1627686018}
+  resumeButton: {fileID: 1470564065}
 --- !u!1 &1322390017
 GameObject:
   m_ObjectHideFlags: 0
@@ -10776,9 +10779,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1319246821}
+      - m_Target: {fileID: 1319246827}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: Resume
+        m_MethodName: resumeGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13640,9 +13643,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1319246821}
+      - m_Target: {fileID: 1319246827}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: LoadMenu
+        m_MethodName: loadMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13778,9 +13781,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1319246821}
+      - m_Target: {fileID: 1319246827}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: LoadMenu
+        m_MethodName: loadMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,27 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEditor.Rendering;
 
 public class cameraOptions : MonoBehaviour
 {
+    [Header("Camera Options")]
     public Toggle cameraInvert;
     public Slider cameraSpeed;
 
     [Header("Panels")]
-    public GameObject pauseMenuUI;
-    public GameObject CameraUI;
+    public GameObject cameraPanel;
+    public GameObject pausePanel;
 
+    [Header("Button")]
     public GameObject resumeButton;
 
-    private CinemachineFreeLook freeLook;
+    private CinemachineFreeLook freelookCamera;
 
-    // Start is called before the first frame update
-    void Start()
+
+    public void Awake()
     {
-        freeLook = DontDestroy.Instance.FreeLookCamera;
+        freelookCamera = DontDestroy.Instance.FreeLookCamera;
 
         cameraInvert.onValueChanged.AddListener(InvertXAxis);
         cameraSpeed.onValueChanged.AddListener(OnSpeedSliderChanged);
@@ -29,7 +32,7 @@ public class cameraOptions : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Pause"))
+        if (Input.GetButtonDown("Pause") && pausePanel.activeSelf == false)
         {
             backButton();
         }
@@ -37,19 +40,18 @@ public class cameraOptions : MonoBehaviour
 
     private void InvertXAxis(bool isOn)
     {
-        freeLook.m_XAxis.m_InvertInput = isOn;
+        freelookCamera.m_XAxis.m_InvertInput = isOn;
     }
 
     private void OnSpeedSliderChanged(float value)
     {
-        freeLook.m_XAxis.m_MaxSpeed = value;
+        freelookCamera.m_XAxis.m_MaxSpeed = value;
     }
 
     public void backButton()
     {
-        CameraUI.SetActive(false);
-        pauseMenuUI.SetActive(true);
-
+        cameraPanel.SetActive(false);
+        pausePanel.SetActive(true);
         if (Gamepad.current != null || Joystick.current != null)
         {
             EventSystem.current.SetSelectedGameObject(resumeButton);

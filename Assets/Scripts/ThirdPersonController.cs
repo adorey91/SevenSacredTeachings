@@ -27,7 +27,6 @@ public class ThirdPersonController : MonoBehaviour
         Cursor.visible = false;
         rb = this.GetComponent<Rigidbody>();
         playerActionsAsset = new ThirdPersonActionsAsset();
-        
     }
 
     private void OnEnable()
