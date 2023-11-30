@@ -9,6 +9,7 @@ public class letterCount : MonoBehaviour
     public List<GameObject> letters; // list that contains game objects
     public GameObject progressText;
     public GameObject player;
+    private Rigidbody rb;
 
 
     private int collectCount = 0;
@@ -19,6 +20,7 @@ public class letterCount : MonoBehaviour
     private void Start()
     {
         letters[collectCount].SetActive(false);
+        rb = player.GetComponent<Rigidbody>();
     }
 
     private void Awake()
@@ -48,6 +50,7 @@ public class letterCount : MonoBehaviour
                     if (winPanel != null && !winPanel.activeSelf)
                     {
                         progressText.SetActive(false);
+                        rb.isKinematic = true;
                         Cursor.visible = true;
                         winPanel.SetActive(true); // win text is active
                     }
