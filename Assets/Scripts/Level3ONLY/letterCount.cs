@@ -77,7 +77,6 @@ public class letterCount : MonoBehaviour
     }        
 
     public void IncrementCounter()
-
     {
         redToBlueChangeCount++;
         letters[collectCount].SetActive(true); // turns on a letter based on the count
