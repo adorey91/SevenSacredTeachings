@@ -1,25 +1,24 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Rendering;
-using UnityEngine.EventSystems;
-using Cinemachine;
-using UnityEngine.UI;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class pauseMenu : MonoBehaviour
 {
     [SerializeField] private bool gameIsPaused = false;
 
     [Header("Panels")]
+    public GameObject pausePanel;
     public GameObject winPanel;
     public GameObject cameraPanel;
-    public GameObject pausePanel;
 
     [Header("Camera")]
     public GameObject freelookCamera;
 
-    [Header("Objects")]
+    [Header("Text Objects")]
     public TMP_Text pauseLevelName;
 
     private Rigidbody rb;
@@ -30,15 +29,58 @@ public class PauseMenu : MonoBehaviour
         findPlayer();
     }
 
-    private void Update()
+    public void Update()
     {
         if (Input.GetButtonDown("Pause") && cameraPanel.activeSelf == false && winPanel.activeSelf == false)
         {
+            setText();
+            findPlayer();
+
             if (gameIsPaused)
                 resumeGame();
             else
                 pauseGame();
         }
+    }
+
+    public void pauseGame()
+    {
+        if (winPanel.activeSelf)
+            return;
+        else
+        {
+            pausePanel.SetActive(true);
+            freelookCamera.SetActive(false);
+            rb.isKinematic = true;
+            Cursor.visible = true;
+            gameIsPaused = true;
+            Time.timeScale = 0f;
+        }
+
+    }
+
+    public void resumeGame()
+    {
+        pausePanel.SetActive(false);
+        cameraPanel.SetActive(false);
+        freelookCamera.SetActive(true);
+        rb.isKinematic = false;
+        Cursor.visible = false;
+        gameIsPaused = false;
+        Time.timeScale = 1f;
+
+    }
+
+    public void quitGame()
+    {
+        Application.Quit();
+    }
+
+    public void returnToTitle()
+    {
+        winPanel.SetActive(false);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("0. Title");
     }
 
     private void findPlayer()
@@ -62,44 +104,11 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
-
-    public void resumeGame()
-    {
-        pausePanel.SetActive(false);
-        cameraPanel.SetActive(false);
-        freelookCamera.SetActive(true);
-        rb.isKinematic = false;
-        Cursor.visible = false;
-        gameIsPaused = false;
-        Time.timeScale = 1.0f;
-    }
-
-    public void pauseGame()
-    {
-        pausePanel.SetActive(true);
-        freelookCamera.SetActive(false);
-        rb.isKinematic = true;
-        Cursor.visible = true;
-        gameIsPaused = true;
-        Time.timeScale = 0f;
-    }
-
-    public void loadMenu()
-    {
-        pausePanel.SetActive(false);
-        winPanel.SetActive(false);
-        Time.timeScale = 1.0f;
-        SceneManager.LoadScene("0. Title");
-    }
-
-    public void quitGame()
-    {
-        Application.Quit();
-    }
-
+    
     public void cameraOptions()
     {
         cameraPanel.SetActive(true);
         pausePanel.SetActive(false);
     }
+
 }

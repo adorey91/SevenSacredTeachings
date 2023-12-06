@@ -29,14 +29,14 @@ public class cameraOptions : MonoBehaviour
         cameraSpeed.onValueChanged.AddListener(OnSpeedSliderChanged);
     }
 
-    private void Update()
+    public void Update()
     {
-        if (Input.GetButtonDown("Pause") && pausePanel.activeSelf == false)
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
-            backButton();
+            if (cameraPanel.activeSelf)
+                backButton();
         }
     }
-
     private void InvertXAxis(bool isOn)
     {
         freelookCamera.m_XAxis.m_InvertInput = isOn;

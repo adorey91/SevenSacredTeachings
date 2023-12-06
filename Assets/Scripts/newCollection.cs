@@ -21,7 +21,6 @@ public class newCollection : MonoBehaviour
     public TMP_Text levelEnglish;
     public TMP_Text levelEnglishWin;
 
-    private Rigidbody rb;
     public GameObject player;
 
     public GameObject freelookCamera;
@@ -32,7 +31,6 @@ public class newCollection : MonoBehaviour
         {
             Cursor.visible = true;
             winPanel.SetActive(true); // win text is active
-            rb.isKinematic = true;
             freelookCamera.SetActive(false);
             collectionText.SetActive(false);
         }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class ThirdPersonController : MonoBehaviour
 {
@@ -27,6 +28,17 @@ public class ThirdPersonController : MonoBehaviour
         Cursor.visible = false;
         rb = this.GetComponent<Rigidbody>();
         playerActionsAsset = new ThirdPersonActionsAsset();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        findPlayer();
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     private void OnEnable()
@@ -97,6 +109,15 @@ public class ThirdPersonController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             item.Collect();
+        }
+    }
+
+    private void findPlayer()
+    {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+        {
+            rb = playerObject.GetComponent<Rigidbody>();
         }
     }
 }

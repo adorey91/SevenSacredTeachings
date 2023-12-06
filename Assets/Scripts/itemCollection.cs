@@ -12,7 +12,6 @@ public class itemCollection : MonoBehaviour
     [Header("Object Declarations")]
     public GameObject collectionText;
     public GameObject player;
-    private Rigidbody rb;
     [SerializeField] GameObject freelookCamera;
     [SerializeField] GameObject winPanel;
 
@@ -20,8 +19,6 @@ public class itemCollection : MonoBehaviour
     {
         englishLetters[collectionCount].SetActive(false);
         GetComponent<AudioSource>().playOnAwake = false;
-
-        rb = player.GetComponent<Rigidbody>();
     }
 
     public void Collect()
@@ -32,7 +29,6 @@ public class itemCollection : MonoBehaviour
 
         if (collectionCount == englishLetters.Count)
         {
-            rb.isKinematic = true;
             findCamera();
             winCount();
         }

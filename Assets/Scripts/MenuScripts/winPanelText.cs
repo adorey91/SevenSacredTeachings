@@ -11,6 +11,8 @@ public class winPanelText : MonoBehaviour
     public GameObject continueButton;
     public GameObject endGame;
 
+    public GameObject freeLook;
+
 
     [Header("Panel Text")]
     public TMP_Text winPanelMikmaqLevelName;
@@ -30,6 +32,7 @@ public class winPanelText : MonoBehaviour
         SetText("MikmaqLevel");
         SetText("EnglishLevel");
         SetText("LevelQuote");
+        freeLook.SetActive(true);
 
         if (scene.name == "4. Kepmite'taqn")
         {
