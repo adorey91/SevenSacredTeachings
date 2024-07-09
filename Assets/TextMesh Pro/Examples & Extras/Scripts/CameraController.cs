@@ -42,7 +42,7 @@ namespace TMPro.Examples
         private Vector3 moveVector;
         private float mouseWheel;
 
-        // Controls for Touches on Mobile devices
+        // controls for Touches on Mobile devices
         //private float prev_ZoomDelta;
 
 
