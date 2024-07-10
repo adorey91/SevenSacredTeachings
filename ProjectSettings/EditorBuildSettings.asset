@@ -6,21 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/0. Title.unity
+    path: Assets/_Scenes/MainMenu.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/_Scenes/1. Instructions.unity
-    guid: f5f20b423611e1b459ca87d49fffe869
-  - enabled: 1
-    path: "Assets/_Scenes/2. Ns\u0268tuo'qn.unity"
+    path: Assets/_Scenes/Gameplay_Wisdom.unity
     guid: 824e2de4da6b3c0469dfd72972e9ad61
   - enabled: 1
-    path: Assets/_Scenes/3. Ksalsuti.unity
+    path: Assets/_Scenes/Gameplay_Love.unity
     guid: 385f05ffe04ebbf4382f5eb82a92d1ae
   - enabled: 1
-    path: Assets/_Scenes/4. Kepmite'taqn.unity
+    path: Assets/_Scenes/Gameplay_Respect.unity
     guid: 0adc0316be613624f820b7410b9e868f
   - enabled: 0
-    path: Assets/_Scenes/5. Mlkita'suti.unity
+    path: Assets/_Scenes/Gameplay_Courage.unity
     guid: 5b3729066241d924bb25a3c916eb3b42
   m_configObjects: {}

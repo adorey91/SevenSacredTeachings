@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class UiManager : MonoBehaviour
 {
+    [Header("Manager")]
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private QuestManager questManager;
 
     [Header("UI for Non-State")]
     [SerializeField] private GameObject acknowledgment;
     [SerializeField] private GameObject instructions;
     [SerializeField] private GameObject controls;
     [SerializeField] private GameObject endLevel;
+    [SerializeField] private GameObject confirmation;
 
     [Header("UI for State")]
     [SerializeField] private GameObject mainMenu;
@@ -22,6 +25,12 @@ public class UiManager : MonoBehaviour
 
     // Non State UI
     #region NonState_UI
+
+    public void UI_Confirmation()
+    {
+        SetActiveUI(confirmation);
+    }
+
     public void UI_Instructions()
     {
         SetActiveUI(instructions);
@@ -82,6 +91,7 @@ public class UiManager : MonoBehaviour
         instructions.SetActive(false);
         controls.SetActive(false);
         endLevel.SetActive(false);
+        confirmation.SetActive(false);
 
         activeUI.SetActive(true);
     }

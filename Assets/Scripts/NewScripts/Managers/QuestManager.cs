@@ -1,31 +1,68 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using TMPro;
 using UnityEngine;
 
-public class Quest_Manager : MonoBehaviour
+public class QuestManager : MonoBehaviour
 {
-    [SerializeField] private WordAssets[] WordAssets;
+    public int currentLevel = 0;
+    public WordAssets[] WordAssets;
 
-    [SerializeField] private TMP_Text englishWord;
-    [SerializeField] private TMP_Text mikmaqWord;
     private int levelNumber;
 
     private GameObject[] collectables;
+
+    public string MikmaqWord()
+    {
+        return WordAssets[currentLevel].mikmaqWord;
+    }
+
+
+    public string CompleteEnglishWord(bool complete)
+    {
+        StringBuilder completeWord = new StringBuilder();
+
+        if (complete)
+        {
+            foreach (var character in WordAssets[currentLevel].englishChar)
+            {
+                completeWord.Append(character);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < collectables.Length; i++)
+            {
+                completeWord.Append(WordAssets[currentLevel].englishChar[i]);
+            }
+        }
+        return completeWord.ToString();
+    }
+
+    public string Quote()
+    {
+        return WordAssets[currentLevel].quote;
+    }
+
 
     public void FindCollectables()
     {
         // find all things that are to be collectables? idk how this will work for the things that are going to change color?
     }
 
-    public void SetMikmaqWord(int number)
-    {
-        mikmaqWord.text = WordAssets[number].mikmaqWord;
-        levelNumber = number;
-    }
+    //public void SetMikmaqWord(int number)
+    //{
+    //    int amount = 0;
+    //    collectionText.text = $"Mi'kmaq - {WordAssets[number].mikmaqWord} / English - {WordAssets[number].englishChar[amount]}";
 
-    public void SetEnglishWord()
+    //    // for each collectable connected, show one of the letters from word assets. Or add it to the string of text already shown.   
+    //}
+
+    public void CompleteLevel()
     {
-     // for each collectable connected, show one of the letters from word assets. Or add it to the string of text already shown.   
+        // show win screen.
+        // turn off movement & camera movement & hover over mikmaq word
+        currentLevel++;
     }
 }

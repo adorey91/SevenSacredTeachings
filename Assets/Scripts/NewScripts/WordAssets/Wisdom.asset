@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c659e6c0cdeef8e45849e0487d5bf3bf, type: 3}
   m_Name: Wisdom
   m_EditorClassIdentifier: 
+  mikmaqWordAudio: {fileID: 8300000, guid: c2fea0b0674e9244ea699676659d2efa, type: 3}
   mikmaqWord: "Ns\u0268tuo'qn"
   englishChar:
   - W
@@ -20,3 +21,4 @@ MonoBehaviour:
   - d
   - o
   - m
+  quote: To cherish knowledge is to know wisdom

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c659e6c0cdeef8e45849e0487d5bf3bf, type: 3}
   m_Name: Respect
   m_EditorClassIdentifier: 
+  mikmaqWordAudio: {fileID: 8300000, guid: 5973663f272bd5c42899d60c4a91ecf4, type: 3}
   mikmaqWord: Kepmite'taqn
   englishChar:
   - R
@@ -21,3 +22,4 @@ MonoBehaviour:
   - e
   - c
   - t
+  quote: To honor all of creation is to have respect
