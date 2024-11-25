@@ -9,17 +9,6 @@ public class LevelManager : MonoBehaviour
 {
     [Header("Managers")]
     [SerializeField] private GameManager gameManager;
-    [SerializeField] private QuestManager questManager;
-    [SerializeField] private Singleton singleton;
-
-    [Header("Camera & Bounding shape")]
-    [SerializeField] private GameObject mainCamera;
-    [SerializeField] private Collider2D foundBoundingShape;
-    [SerializeField] private CinemachineConfiner2D confiner2D;
-
-    [Header("Player Spawn Location")]
-    [SerializeField] private GameObject player;
-    [SerializeField] private Transform playerSpawn;
 
     [Header("Scene Fade")]
     [SerializeField] private Animator fadeAnimator;
@@ -32,8 +21,9 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-        fadeAnimator = GetComponent<Animator>();
-        fadeAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
+
+        //fadeAnimator = GetComponent<Animator>();
+        //fadeAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
     }
 
     public void LoadScene(string sceneName)
@@ -50,7 +40,6 @@ public class LevelManager : MonoBehaviour
             {
                 case "0. Title":
                     gameManager.LoadState("MainMenu");
-                    singleton.ClearInstance();
                     break;
                 case string name when name.StartsWith("Gameplay"):
                     gameManager.LoadState("Gameplay");
@@ -73,7 +62,6 @@ public class LevelManager : MonoBehaviour
             return;
         }
 
-        player = GameObject.FindWithTag("Player");
 
         Fade("FadeIn", () => isLoadingScene = false);
     }

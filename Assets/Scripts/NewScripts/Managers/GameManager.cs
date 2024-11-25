@@ -20,10 +20,10 @@ public class GameManager : MonoBehaviour
         SetState(Gamestate.MainMenu);
     }
 
-    private void Update()
-    {
-        SetState(gameState);
-    }
+    //private void Update()
+    //{
+    //    SetState(gameState);
+    //}
 
     private void SetState(Gamestate state)
     {
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
 
     private void Gameplay()
     {
-        uiManager.UI_GamePlay();
+        uiManager.UI_Gameplay();
     }
 
     private void MainMenu()
@@ -90,4 +90,5 @@ public class GameManager : MonoBehaviour
         uiManager.UI_MainMenu();
     }
 
+    public void QuitGame() => Application.Quit();
 }
